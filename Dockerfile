@@ -30,7 +30,7 @@ RUN make ARCH=$ARCH br-source
 
 # Patch buildroot config to add the desired packages
 RUN sed -i '/# BR2_PACKAGE_THTTPD/c\BR2_PACKAGE_THTTPD=y' conf/buildroot-$ARCH.config
-RUN sed -i '/# BR2_PACKAGE_TCPDUMP/c\BR2_PACKAGE_TCPDUMP=y' conf/buildroot-$ARCH.config
+RUN sed -i '/# BR2_PACKAGE_TCPDUMP/c\BR2_PACKAGE_TCPDUMP=y\nBR2_PACKAGE_TCPDUMP_SMB=n' conf/buildroot-$ARCH.config
 
 # Build buildroot
 RUN make ARCH=$ARCH OUT_D=/root/cirros/output/$ARCH
