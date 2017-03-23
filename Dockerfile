@@ -33,5 +33,4 @@ RUN apt-get install -y grub-common
 RUN ./bin/grab-grub-efi "$GVER"
 
 WORKDIR /root/cirros
-#RUN modprobe loop
 CMD ./bin/bundle -v --arch=$ARCH output/$ARCH/rootfs.tar download/kernel-$ARCH.deb download/grub-efi-$ARCH.tar.gz output/$ARCH/images
