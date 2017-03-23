@@ -18,7 +18,7 @@ WORKDIR download
 
 RUN wget http://buildroot.uclibc.org/downloads/buildroot-$BR_VER.tar.gz
 WORKDIR /root/cirros
-RUN tar -xvf /root/download/buildroot-$BR_VER.tar.gz
+RUN tar -xvf /root/cirros/download/buildroot-$BR_VER.tar.gz
 RUN ln -snf /root/cirros/buildroot-$BR_VER /root/cirros/buildroot
 
 WORKDIR buildroot
