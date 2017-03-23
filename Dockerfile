@@ -18,3 +18,8 @@ RUN ( cd /root/cirros && tar -xvf /root/download/buildroot-$BR_VER.tar.gz )
 RUN ln -snf /root/cirros/buildroot-$BR_VER /root/cirros/buildroot
 
 RUN ( cd /root/cirros/buildroot && QUILT_PATCHES=/root/cirros/patches-buildroot quilt push -a )
+
+RUN apt-get install -y python
+RUN ( cd /root/cirros && make ARCH=$ARCH br-source )
+
+RUN ( cd /root/cirros && make ARCH=$ARCH OUT_D=/root/cirros/output/$ARCH )
